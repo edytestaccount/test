@@ -40,17 +40,17 @@ jobs:
       # Install Playwright browsers
       - name: Install Playwright Browsers
         run: |
-          cd test/playwright
+          cd playwright
           npx playwright install
 
       # Build TypeScript
       - name: Build TypeScript
         run: |
-          cd test/playwright
+          cd playwright
           npm run build
 
       # Run Playwright tests
       - name: Run Playwright tests
         run: |
-          cd test/playwright
+          cd playwright
           npm test
