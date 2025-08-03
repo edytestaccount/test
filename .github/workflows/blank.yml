@@ -25,12 +25,32 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
+      # Set up Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
 
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+      # Install dependencies
+      - name: Install dependencies
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+          cd test/playwright
+          npm install
+
+      # Install Playwright browsers
+      - name: Install Playwright Browsers
+        run: |
+          cd test/playwright
+          npx playwright install
+
+      # Build TypeScript
+      - name: Build TypeScript
+        run: |
+          cd test/playwright
+          npm run build
+
+      # Run Playwright tests
+      - name: Run Playwright tests
+        run: |
+          cd test/playwright
+          npm test

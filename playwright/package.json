@@ -1,0 +1,16 @@
+{
+  "name": "playwright-basic-framework",
+  "version": "1.0.0",
+  "description": "Basic Playwright automation framework with TypeScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test",
+    "build": "tsc"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.44.0",
+    "typescript": "^5.0.0"
+  }
+}
